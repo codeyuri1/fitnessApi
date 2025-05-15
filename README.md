@@ -1,32 +1,11 @@
-## Micronaut 4.8.2 Documentation
+# 🏋️‍♂️ Fitness API
 
-- [User Guide](https://docs.micronaut.io/4.8.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.8.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.8.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+**Fitness API** is a RESTful service built with **Micronaut**, **Groovy**, and **Java 21**. It provides secure endpoints for user and workout plan management, featuring JWT authentication, data validation, in-memory H2 persistence, Flyway migrations, and auto-generated Swagger documentation.
 
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-## Feature flyway documentation
+...
 
-- [Micronaut Flyway Database Migration documentation](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/index.html)
+## 👨‍💻 Author
 
-- [https://flywaydb.org/](https://flywaydb.org/)
-
-
-## Feature jdbc-hikari documentation
-
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
-
-
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
-
-
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
+**Yuri Martins**  
+- [LinkedIn](https://www.linkedin.com/in/codeyurimartins)  
+- [GitHub](https://github.com/codeyuri1)
