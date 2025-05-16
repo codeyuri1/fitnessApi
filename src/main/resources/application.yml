@@ -8,15 +8,25 @@ micronaut:
       enabled: true
 
   router:
-    versioning:
-      enabled: true
     static-resources:
+      # onde o spec gerado ficará
       swagger:
         paths: classpath:META-INF/swagger
         mapping: /swagger/**
+      # onde ficam os arquivos do UI
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+
+  openapi:
+    enabled: true
+    file-name: fitness-api            # gera META-INF/swagger/fitness-api.yml
+    swagger-ui:
+      enabled: true
+      # define um “bookmark” para a URL do seu spec dentro do UI
+      urls:
+        - name: "Fitness API"
+          url: "/swagger/fitness-api-1.0.yml"
 
   security:
     enabled: true

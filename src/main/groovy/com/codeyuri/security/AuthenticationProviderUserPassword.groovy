@@ -1,4 +1,4 @@
-package com.codeyuri.sercurity
+package com.codeyuri.security
 
 import io.micronaut.core.annotation.Nullable
 import io.micronaut.security.authentication.*

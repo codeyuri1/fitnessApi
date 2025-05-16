@@ -25,7 +25,7 @@ dependencies {
     //swagger
     annotationProcessor("io.micronaut.openapi:micronaut-openapi")
     implementation("io.micronaut.security:micronaut-security-annotations")
-    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
+    implementation("io.micronaut.openapi:micronaut-openapi-annotations")
     //
     compileOnly("io.micronaut.serde:micronaut-serde-processor")
     runtimeOnly("ch.qos.logback:logback-classic")
@@ -80,5 +80,6 @@ micronaut {
 tasks.named("dockerfileNative") {
     jdkVersion = "21"
 }
+
 
 
