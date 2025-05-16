@@ -6,6 +6,14 @@ import io.micronaut.core.annotation.Introspected
 @Introspected
 class UserMapper {
 
+    void updateEntity(UserUpdateDTO dto, User user) {
+        user.name      = dto.name
+        user.email     = dto.email
+        user.birthDate = dto.birthDate
+        user.weight    = dto.weight
+        user.height    = dto.height
+    }
+
     User toEntity(UserCreateDTO dto) {
         new User(
                 name: dto.name,

@@ -1,5 +1,5 @@
 plugins {
-    id("groovy") 
+    id("groovy")
     id("io.micronaut.application") version "4.5.3"
     id("com.gradleup.shadow") version "8.3.6"
     id("io.micronaut.aot") version "4.5.3"
@@ -22,9 +22,11 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     compileOnly("io.micronaut:micronaut-http-client")
     compileOnly("io.micronaut:micronaut-http-validation")
-    compileOnly("io.micronaut.openapi:micronaut-openapi")
+    //swagger
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    implementation("io.micronaut.security:micronaut-security-annotations")
     compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
-    compileOnly("io.micronaut.security:micronaut-security-annotations")
+    //
     compileOnly("io.micronaut.serde:micronaut-serde-processor")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.h2database:h2")

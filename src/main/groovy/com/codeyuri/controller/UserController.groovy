@@ -4,6 +4,7 @@ import com.codeyuri.domain.User
 import com.codeyuri.dtos.UserCreateDTO
 import com.codeyuri.dtos.UserMapper
 import com.codeyuri.dtos.UserResponseDTO
+import com.codeyuri.dtos.UserUpdateDTO
 import com.codeyuri.services.UserService
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
@@ -25,12 +26,13 @@ class UserController {
     @Inject
     UserMapper mapper
 
+
     @Operation(summary = "Create a new user", description = "Creates and persists a user")
     @ApiResponse(responseCode = "201", description = "User created")
     @Post
     HttpResponse<UserResponseDTO> create(@Body @Valid UserCreateDTO dto) {
-        def user = mapper.toEntity(dto)
-        def saved = service.save(user)
+        User user = mapper.toEntity(dto)
+        User saved = service.save(user)
         HttpResponse.created(mapper.toDTO(saved))
     }
 
@@ -63,5 +65,13 @@ class UserController {
     HttpResponse<?> delete(Long id) {
         service.delete(id)
         HttpResponse.noContent()
+    }
+
+    @Put("/{id}")
+    @Operation(summary = "Update an existing user")
+    @ApiResponse(responseCode = "200", description = "User updated")
+    HttpResponse<UserResponseDTO> update(Long id, @Body @Valid UserUpdateDTO dto) {
+        User updated = service.update(id, dto)
+        HttpResponse.ok(mapper.toDTO(updated))
     }
 }

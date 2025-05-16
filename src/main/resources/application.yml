@@ -6,6 +6,7 @@ micronaut:
     port: 8080
     cors:
       enabled: true
+
   router:
     versioning:
       enabled: true
@@ -16,17 +17,25 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+
   security:
     enabled: true
+    authentication: bearer
+    intercept-url-map:
+      - pattern: /swagger-ui/**
+        access:
+          - isAnonymous()
+      - pattern: /swagger/**
+        access:
+          - isAnonymous()
     token:
       jwt:
         enabled: true
         signatures:
           secret:
             generator:
-              secret: 'thisisaverysecurejwtkeywith32chars'
-              jws-algorithm: HS256
-    authentication: bearer
+              secret: "thisisaverysecurejwtkeywith32chars"
+
   http:
     services:
       default:
