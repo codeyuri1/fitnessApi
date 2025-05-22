@@ -1,9 +1,11 @@
 package com.codeyuri.services
 
-import com.codeyuri.domain.Exercise
+
 import com.codeyuri.domain.UserWorkoutPlan
 import com.codeyuri.domain.WorkoutPlan
 import com.codeyuri.domain.WorkoutPlanExercise
+import com.codeyuri.dtos.request.UserActualWorkoutPlanDTO
+import com.codeyuri.dtos.request.WorkoutExerciseDetailDTO
 import com.codeyuri.mappers.ExerciseMapper
 import com.codeyuri.repository.UserWorkoutPlanRepository
 import jakarta.inject.Inject
@@ -27,7 +29,8 @@ class UserWorkoutPlanService {
     @Inject
     ExerciseService exerciseService
 
-    @Inject ExerciseMapper exerciseMapper
+    @Inject
+    ExerciseMapper exerciseMapper
 
 
     @Transactional
@@ -36,7 +39,7 @@ class UserWorkoutPlanService {
         UserWorkoutPlan planRelation = userWorkoutPlanRepository.findByUserIdAndDateToAfter(userId, date)
 
         if (!planRelation) {
-            return null  // ou lançar exceção
+            return null
         }
 
         WorkoutPlan workoutPlan = workoutPlanService.findById(planRelation.workoutPlanId).orElse(null)
@@ -51,7 +54,7 @@ class UserWorkoutPlanService {
 
             new WorkoutExerciseDetailDTO(
                     workoutPlanExerciseId: wpe.id,
-                    order: wpe.order,
+                    order: wpe.sequence,
                     sets: wpe.sets,
                     reps: wpe.reps,
                     exercise: exercise ? exerciseMapper.toDTO(exercise) : null
