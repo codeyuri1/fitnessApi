@@ -6,6 +6,10 @@ import io.micronaut.data.repository.CrudRepository
 
 @Repository
 interface ExerciseRepository extends CrudRepository<Exercise, Long> {
+
     List<Exercise> findByMuscleGroup(String muscleGroup)
+
+
+
 
 }
