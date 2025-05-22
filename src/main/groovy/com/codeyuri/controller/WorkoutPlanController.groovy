@@ -5,18 +5,12 @@ import com.codeyuri.dtos.response.WorkoutPlanResponseDTO
 import com.codeyuri.mappers.WorkoutPlanMapper
 import com.codeyuri.services.WorkoutPlanService
 import io.micronaut.http.HttpResponse
-import io.micronaut.http.annotation.Body
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Delete
-import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.Post
-import io.micronaut.http.annotation.QueryValue
+import io.micronaut.http.annotation.*
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
-import jakarta.inject.Inject
 import jakarta.validation.Valid
 
 @Secured(SecurityRule.IS_AUTHENTICATED)
@@ -55,7 +49,7 @@ class WorkoutPlanController {
         mapper.toDTOList(service.findAll())
     }
 
-    @Get("/search{?title}")
+    @Get("/search/{title}")
     @Operation(summary = "Find workout plans by title")
     List<WorkoutPlanResponseDTO> search(@QueryValue String title) {
         mapper.toDTOList(service.findByTitleLike(title))

@@ -8,7 +8,7 @@ class WorkoutPlanExerciseDTO {
     Long id
     Long workoutPlanId
     Long exerciseId
-    Integer order
+    Integer sequence
     Integer sets
     Integer reps
 }

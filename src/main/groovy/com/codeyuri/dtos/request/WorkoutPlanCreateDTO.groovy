@@ -15,5 +15,7 @@ class WorkoutPlanCreateDTO {
     @Positive
     Integer duration
 
-    List<Long> exerciseIds
+    List<Long> exerciseIds = []
+
+    Long userId
 }

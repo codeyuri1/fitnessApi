@@ -4,6 +4,7 @@ import com.codeyuri.domain.WorkoutPlanExercise
 import com.codeyuri.mappers.WorkoutPlanExerciseMapper
 import com.codeyuri.repository.WorkoutPlanExerciseRepository
 import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
 @Singleton
 class WorkoutPlanExerciseService {

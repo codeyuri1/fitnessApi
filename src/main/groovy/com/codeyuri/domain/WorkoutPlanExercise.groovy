@@ -3,13 +3,13 @@ package com.codeyuri.domain
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 @Entity
 class WorkoutPlanExercise {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id
 
     @Column(nullable = false)
@@ -19,7 +19,7 @@ class WorkoutPlanExercise {
     Long exerciseId
 
     @Column(nullable = false)
-    Integer order
+    Integer sequence
 
     Integer sets
     Integer reps

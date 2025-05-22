@@ -3,6 +3,7 @@ package com.codeyuri.domain
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 import java.time.LocalDate
@@ -11,7 +12,7 @@ import java.time.LocalDate
 class WorkoutPlan {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id
 
     @Column(nullable = false)
@@ -23,5 +24,8 @@ class WorkoutPlan {
     LocalDate createdDate
 
     Integer duration
+
+    @Column(nullable = false)
+    Long userId
 }
 

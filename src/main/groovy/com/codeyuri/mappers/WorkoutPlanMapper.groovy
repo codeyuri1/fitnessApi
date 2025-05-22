@@ -6,6 +6,7 @@ import com.codeyuri.dtos.request.WorkoutPlanCreateDTO
 import com.codeyuri.dtos.response.WorkoutPlanResponseDTO
 import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
 @Singleton
 @Serdeable
@@ -18,7 +19,8 @@ class WorkoutPlanMapper {
                 title: dto.title,
                 description: dto.description,
                 createdDate: LocalDate.now(),
-                duration: dto.duration
+                duration: dto.duration,
+                userId: dto.userId
         )
     }
 

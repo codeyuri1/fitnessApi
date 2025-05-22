@@ -14,7 +14,7 @@ class WorkoutPlanExerciseMapper {
                 id: entity.id,
                 workoutPlanId: entity.workoutPlanId,
                 exerciseId: entity.exerciseId,
-                order: entity.order,
+                sequence: entity.sequence,
                 sets: entity.sets,
                 reps: entity.reps
         )
@@ -25,7 +25,7 @@ class WorkoutPlanExerciseMapper {
                 id: dto.id,
                 workoutPlanId: dto.workoutPlanId,
                 exerciseId: dto.exerciseId,
-                order: dto.order,
+                sequence: dto.sequence,
                 sets: dto.sets,
                 reps: dto.reps
         )
