@@ -8,7 +8,7 @@ import java.time.LocalDate
 
 @Introspected
 @Entity
-@Table(name = "UserController", indexes = [
+@Table(name = "users", indexes = [
         @Index(name = "idx_user_name", columnList = "name"),
         @Index(name = "idx_user_email", columnList = "email")
 

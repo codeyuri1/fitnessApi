@@ -1,12 +1,11 @@
 package com.codeyuri.controller
 
 import com.codeyuri.domain.User
-import com.codeyuri.dtos.UserCreateDTO
-import com.codeyuri.dtos.UserMapper
-import com.codeyuri.dtos.UserResponseDTO
-import com.codeyuri.dtos.UserUpdateDTO
+import com.codeyuri.dtos.request.UserCreateDTO
+import com.codeyuri.mappers.UserMapper
+import com.codeyuri.dtos.response.UserResponseDTO
+import com.codeyuri.dtos.request.UserUpdateDTO
 import com.codeyuri.services.UserService
-import io.micronaut.core.annotation.Introspected
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
 import io.micronaut.security.annotation.Secured
@@ -17,7 +16,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.inject.Inject
 import jakarta.validation.Valid
 
-@Secured(SecurityRule.IS_ANONYMOUS)
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("/users")
 @Tag(name = "Users", description = "Operations related to user management")
 class UserController {
@@ -45,7 +44,7 @@ class UserController {
                 .orElse(HttpResponse.notFound())
     }
 
-    @Get("/email/{email}")
+    @Get("/{email}")
     @Operation(summary = "Find user by Email")
     @ApiResponse(responseCode = "200", description = "User found")
     HttpResponse<UserResponseDTO> getByEmail(String email) {

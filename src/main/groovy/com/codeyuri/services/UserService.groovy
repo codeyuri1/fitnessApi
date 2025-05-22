@@ -1,8 +1,8 @@
 package com.codeyuri.services
 
 import com.codeyuri.domain.User
-import com.codeyuri.dtos.UserMapper
-import com.codeyuri.dtos.UserUpdateDTO
+import com.codeyuri.dtos.request.UserUpdateDTO
+import com.codeyuri.mappers.UserMapper
 import com.codeyuri.repository.UserRepository
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
@@ -13,7 +13,8 @@ class UserService {
     @Inject
     UserRepository repository
 
-    @Inject UserMapper mapper
+    @Inject
+    UserMapper mapper
 
 
     User save(User user) {

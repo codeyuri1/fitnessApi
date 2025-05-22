@@ -1,0 +1,40 @@
+paths:
+  /login:
+    post:
+      tags:
+        - Authentication
+      summary: "Autentica usuário e retorna JWT"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsernamePasswordCredentials'
+      responses:
+        "200":
+          description: JWT gerado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        "401":
+          description: Credenciais inválidas
+components:
+  schemas:
+    UsernamePasswordCredentials:
+      type: object
+      required: [username, password]
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    Object:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer

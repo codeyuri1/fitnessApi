@@ -1,17 +1,14 @@
-package com.codeyuri.dtos
+package com.codeyuri.dtos.request
 
 import io.micronaut.core.annotation.Introspected
-import jakarta.validation.constraints.Email
-import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.NotNull
-import jakarta.validation.constraints.Past
-import jakarta.validation.constraints.Positive
-import jakarta.validation.constraints.Size
+import io.micronaut.serde.annotation.Serdeable
+import jakarta.validation.constraints.*
 
 import java.time.LocalDate
 
 @Introspected
-class UserUpdateDTO {
+@Serdeable
+class UserCreateDTO {
 
     @NotBlank
     @Size(min = 2, max = 100)
