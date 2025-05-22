@@ -27,6 +27,7 @@ class UserController {
     @Inject
     UserMapper mapper
 
+
     @Post
     @Operation(summary = "Create a new user", description = "Creates and persists a user")
     @ApiResponse(responseCode = "201", description = "User created")

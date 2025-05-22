@@ -25,7 +25,5 @@ class WorkoutPlan {
 
     Integer duration
 
-    @Column(nullable = false)
-    Long userId
 }
 
