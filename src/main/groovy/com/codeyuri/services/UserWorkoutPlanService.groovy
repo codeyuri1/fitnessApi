@@ -6,7 +6,9 @@ import com.codeyuri.domain.WorkoutPlan
 import com.codeyuri.domain.WorkoutPlanExercise
 import com.codeyuri.dtos.request.UserActualWorkoutPlanDTO
 import com.codeyuri.dtos.request.WorkoutExerciseDetailDTO
+import com.codeyuri.events.WorkoutPlanCreatedEvent
 import com.codeyuri.mappers.ExerciseMapper
+import com.codeyuri.messaging.WorkoutPlanPublisher
 import com.codeyuri.repository.UserWorkoutPlanRepository
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
@@ -32,11 +34,26 @@ class UserWorkoutPlanService {
     @Inject
     ExerciseMapper exerciseMapper
 
+    @Inject
+    WorkoutPlanPublisher publisher
+
+
+    UserWorkoutPlan save(UserWorkoutPlan plan) {
+        UserWorkoutPlan saved = userWorkoutPlanRepository.save(plan)
+        WorkoutPlan workoutPlan = workoutPlanService.findById(saved.workoutPlanId).orElse(null)
+        publisher.publish(new WorkoutPlanCreatedEvent(
+                workoutPlanId: saved.workoutPlanId,
+                userId: saved.userId,
+                title: workoutPlan.title
+        ))
+        return saved
+    }
+
 
     @Transactional
     def getUserActualWorkoutPlan(Long userId) {
         LocalDate date = LocalDate.now()
-        UserWorkoutPlan planRelation = userWorkoutPlanRepository.findByUserIdAndDateToAfter(userId, date)
+        UserWorkoutPlan planRelation = userWorkoutPlanRepository.findByUserIdAndDateToAfter(userId, date).orElse(null)
 
         if (!planRelation) {
             return null

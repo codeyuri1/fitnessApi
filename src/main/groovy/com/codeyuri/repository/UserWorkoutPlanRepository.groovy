@@ -12,6 +12,6 @@ interface UserWorkoutPlanRepository extends CrudRepository<UserWorkoutPlan, Long
 
     List<UserWorkoutPlan> findAllByUserId(Long userId)
 
-    UserWorkoutPlan findByUserIdAndDateToAfter(Long userId, LocalDate date )
+    Optional<UserWorkoutPlan> findByUserIdAndDateToAfter(Long userId, LocalDate date )
 
 }

@@ -1,7 +1,8 @@
 micronaut:
   application:
     name: fitness-api
-
+  rabbitmq:
+    uri: amqp://guest:guest@localhost:5672
   server:
     port: 8080
     cors:

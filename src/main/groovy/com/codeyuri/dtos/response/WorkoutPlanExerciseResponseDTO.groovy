@@ -1,10 +1,9 @@
-package com.codeyuri.dtos.request
+package com.codeyuri.dtos.response
 
 import io.micronaut.serde.annotation.Serdeable
 
 @Serdeable
-class WorkoutPlanExerciseDTO {
-
+class WorkoutPlanExerciseResponseDTO {
     Long id
     Long workoutPlanDayId
     Long exerciseId

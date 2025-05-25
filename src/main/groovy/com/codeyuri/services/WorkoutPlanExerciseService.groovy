@@ -26,4 +26,9 @@ class WorkoutPlanExerciseService {
     void delete(Long id) {
         repository.deleteById(id)
     }
+
+    List<WorkoutPlanExercise> findByWorkoutPlanDayId(Long workoutPlanDayId) {
+        repository.findByWorkoutPlanDayId(workoutPlanDayId)
+    }
+
 }

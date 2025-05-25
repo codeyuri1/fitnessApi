@@ -8,4 +8,6 @@ import io.micronaut.data.repository.CrudRepository
 interface WorkoutPlanExerciseRepository extends CrudRepository<WorkoutPlanExercise, Long> {
     List<WorkoutPlanExercise> findByWorkoutPlanId(Long workoutPlanId)
 
+    List<WorkoutPlanExercise> findByWorkoutPlanDayId(Long workoutPlanDayId)
+
 }

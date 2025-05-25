@@ -29,7 +29,7 @@ micronaut:
           url: "/swagger/fitness-api-1.0.yml"
 
   security:
-    enabled: true
+    enabled: false
     authentication: bearer
     intercept-url-map:
       - pattern: /swagger-ui/**

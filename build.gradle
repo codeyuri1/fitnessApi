@@ -23,6 +23,9 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     compileOnly("io.micronaut:micronaut-http-client")
     compileOnly("io.micronaut:micronaut-http-validation")
+    //rabbitMQ
+    implementation("io.micronaut.rabbitmq:micronaut-rabbitmq")
+
     //swagger
     annotationProcessor("io.micronaut.openapi:micronaut-openapi")
     implementation("io.micronaut.security:micronaut-security-annotations")
